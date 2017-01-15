@@ -50,7 +50,7 @@
     <color name="notification_icon_color">#FFFFFFFF</color>
 
     <!-- Navigation button ripple color -->
-    <color name="navbutton_ripple_color">#FFFFFFFF</color>
+    <color name="navbutton_ripple_color">@android:color/white</color>
 
     <!-- Expanded Status Bar Weather Text Colors -->
     <color name="status_bar_temperature_text_color">#FFFFFFFF</color>
