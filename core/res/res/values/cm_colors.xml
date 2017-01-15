@@ -17,11 +17,19 @@
     <color name="typing_filter_background_color">#BB000000</color>
     <color name="status_bar_latest_event_content_bg_color">#FFFF00FF</color>
     <color name="media_controller_background_color">#CC000000</color>
-    <color name="immersive_cling_bg_color">#ff009688</color>
+    <color name="immersive_cling_bg_color">#ff2d2d2d</color>
     <color name="immersive_cling_text_color">@color/primary_text_default_material_light</color>
-    <color name="immersive_cling_button_text_color">@android:color/white</color>
-    <color name="app_permission_icon_tint">@android:color/black</color>
+    <color name="immersive_cling_button_text_color">@color/white</color>
+    <color name="app_permission_icon_tint">@color/black</color>
     <color name="notification_mtrl_action_textcolor">@color/secondary_text_material_light</color>
     <color name="notification_mtrl_big_picture_bg">#CCEEEEEE</color>
     <color name="resolver_list_bg">@color/white</color>
+
+    <!-- Pixel theme main colors -->
+    <color name="material_pixel_primary_dark_material_dark">#ff242424</color><!--Pixel Statusbar Color-->
+    <color name="material_pixel_primary_material_dark">#ff2d2d2d</color><!-- Pixel Primary Color-->
+    <color name="material_pixel_primary_material_light">#ff3a3a3a</color><!-- Pixel Secondary Color-->
+    <color name="material_pixel_blue_bright">#ff4285F4</color><!-- Pixel Light Accent Color-->
+    <color name="material_pixel_grey_dark">#ff616161</color><!-- Pixel Tertiary Color-->
+    <color name="material_pixel_grey_light">#ff9e9e9e</color><!-- Pixel Quaternary Color-->
 </resources>
