@@ -409,24 +409,30 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         return true;
     }
 
-    private void updateMemoryStatus() {
+    public void updateMemoryStatus() {
         if (mMemText.getVisibility() == View.GONE
                 || mMemBar.getVisibility() == View.GONE) return;
 
         MemoryInfo memInfo = new MemoryInfo();
         mAm.getMemoryInfo(memInfo);
             int available = (int)(memInfo.availMem / 1048576L);
-            int max = (int)(getTotalMemory() / 1048576L);
             mMemText.setText("Free RAM: " + String.valueOf(available) + "MB");
-            mMemBar.setMax(max);
+            mMemBar.setMax(mTotalMem);
             mMemBar.setProgress(available);
     }
 
     public int getTotalMemory() {
-        MemoryInfo memInfo = new MemoryInfo();
-        mAm.getMemoryInfo(memInfo);
-        int totalMem = memInfo.totalMem;
-        return totalMem;
+        int memory = 0;
+        try {
+            final FileReader localFileReader = new FileReader("/proc/meminfo");
+            final BufferedReader localBufferedReader = new BufferedReader(localFileReader, 8192);
+            String str2 = localBufferedReader.readLine(); // meminfo
+            String[] arrayOfString = str2.split("\\s+");
+            memory = Integer.valueOf(arrayOfString[1]).intValue() * 1024;
+            localBufferedReader.close();
+        } catch (IOException e) {
+        }
+        return memory / 1048576;
     }
 
 
@@ -736,6 +742,8 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         }
 
         mCb.onAllTaskViewsDismissed();
+
+        updateMemoryStatus();
 
         // Keep track of all-deletions
         MetricsLogger.count(getContext(), "overview_task_all_dismissed", 1);
