@@ -422,10 +422,10 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
             mMemBar.setProgress(available);
     }
 
-    public long getTotalMemory() {
+    public int getTotalMemory() {
         MemoryInfo memInfo = new MemoryInfo();
         mAm.getMemoryInfo(memInfo);
-        long totalMem = memInfo.totalMem;
+        int totalMem = memInfo.totalMem;
         return totalMem;
     }
 
